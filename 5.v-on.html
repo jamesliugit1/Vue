@@ -8,11 +8,9 @@
 </head>
 <body>
     <div class="container">
-        <h2>請輸入分數</h2>
-        <input type="text" v-model="score">
-        <p>你的分數: {{score}}</p>
-        <div v-if="score>=60">你及格了!</div>
-        <div v-if="score<60">不及格!</div>
+        <ul>
+            <li v-for="item in man" v-on:click="getman(item.single)">{{item.single}}</li>
+        </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -20,11 +18,18 @@
         var container = new Vue({
             el: ".container",
             data: {
-                score: 40
+                man: [
+                    {single: "James"},
+                    {single: "Bob"},
+                    {single: "David"}
+                ]
+            },
+            methods: {
+                getman: function(x){
+                    alert(x);
+                }
             }
         })
-        // v-model可及時動態更新內容
     </script>
-
 </body>
 </html>
