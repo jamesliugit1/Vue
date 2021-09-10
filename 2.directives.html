@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        {{msg}}
+        
+        <div class="box">
+            {{msg}}
+        </div>
+        <div v-if="box2">
+            <!-- 若false， DOM會整個消失 -->
+            {{msg}}
+        </div>
+        <h1 v-show="box3">nice to meet you</h1>
+        <!-- 若false ，DOM不會消失 -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var container = new Vue({
+            el: ".container",
+            data: {
+                msg: "Hello World",
+                box2: false,
+                box3: false
+            }
+        });
+    </script>
+</body>
+</html>
